@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A minimal animated website using HTML and CSS in a green theme.">
+    <title>Animated Website</title>
+    <link rel="stylesheet" href="just.css">
+    <style>
+        /* Green Theme Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8f5e9; /* Light green */
+            color: #004d00; /* Dark green */
+            overflow: hidden; /* Prevent scrolling */
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #004d00; /* Dark green */
+            color: #e8f5e9; /* Light green */
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #e8f5e9; /* Light green */
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            text-align: center;
+            background-color: #004d00; /* Dark green */
+            color: #e8f5e9; /* Light green */
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: slide-in 1s ease-in-out;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            animation: fade-in 2s ease-in-out;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #004d00; /* Dark green */
+            background-color: #e8f5e9; /* Light green */
+            border: 1px solid #004d00; /* Dark green */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            background-color: #004d00; /* Dark green */
+            color: #e8f5e9; /* Light green */
+            border-color: #004d00;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        section:nth-child(even) {
+            background-color: #004d00; /* Dark green */
+            color: #e8f5e9; /* Light green */
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004d00; /* Dark green */
+            color: #e8f5e9; /* Light green */
+        }
+
+        /* Animations */
+        @keyframes slide-in {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Raining Objects Styles */
+        .raining-objects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .raining-objects span {
+            position: absolute;
+            top: -10%;
+            width: 15px;
+            height: 15px;
+            background-color: #66bb6a; /* Medium green */
+            border-radius: 50%; /* Circular objects */
+            animation: fall linear infinite;
+            opacity: 0.6;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        /* Randomize object positions, speeds, and sizes */
+        .raining-objects span:nth-child(odd) {
+            animation-duration: calc(2s + (var(--i) * 2s)); /* Vary duration */
+            animation-delay: calc(0.5s * var(--i));
+            left: calc(5% * var(--i)); /* Spread across */
+        }
+        .raining-objects span:nth-child(even) {
+            animation-duration: calc(4s + (var(--i) * 2s)); /* Vary duration */
+            animation-delay: calc(1s * var(--i));
+            left: calc(7% * var(--i)); /* Spread across */
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Raining Objects Background -->
+    <div class="raining-objects">
+        <!-- Generate objects dynamically -->
+        <!-- Example uses 50 objects -->
+        <span style="--i:1;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:3;"></span>
+        <span style="--i:4;"></span>
+        <span style="--i:5;"></span>
+        <span style="--i:6;"></span>
+        <span style="--i:7;"></span>
+        <span style="--i:8;"></span>
+        <span style="--i:9;"></span>
+        <span style="--i:10;"></span>
+        <span style="--i:11;"></span>
+        <span style="--i:12;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:14;"></span>
+        <span style="--i:15;"></span>
+        <span style="--i:16;"></span>
+        <span style="--i:17;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:19;"></span>
+        <span style="--i:20;"></span>
+    </div>
+
+    <header>
+        <div class="logo">Gender Inequality</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome</h1>
+            <p>Click "Get Started" to view my SDG.</p>
+            <a href="justine.html" class="button">Get Started</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We create stunning websites with beautiful animations to captivate audiences.</p>
+    </section>
+
+    <section id="services">
+        <h3>Here Are Our Services</h3>
+        <p><strong>Web Design:</strong> Creating visually appealing and user-friendly website layouts.</p>
+        <p><strong>Web Development:</strong> Building and maintaining functional websites.</p>
+        <p><strong>App Development:</strong> Designing and developing mobile and desktop applications.</p>
+    </section>
+
+    <section id="contact">
+        <h4>Contact Us</h4>
+        <p><strong>Our Address:</strong> 123 Business Avenue, Suite 101,<br>Cityville, Country<br>ZIP Code: 4200</p>
+        <p><strong>Phone Number:</strong> (123) 456-7890<br>Monday to Friday, 9:00 AM - 6:00 PM</p>
+        <p><strong>Email:</strong> cortezjustine39@gmail.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Animated Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
